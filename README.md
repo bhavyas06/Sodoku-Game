@@ -1,1 +1,2 @@
-# Sodoku-Solver
+# Sodoku-Solver and Generator
+
