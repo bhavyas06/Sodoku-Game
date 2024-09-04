@@ -29,17 +29,32 @@ void removeDigits(Sudoku *sudoku) {
     }
 }
 
-void printGrid(Sudoku *sudoku) { 
-    for(int i=0; i<sudoku->N; i++) {
-        if(i%3 == 0)
-            printf("-------------------------\n");
-        for(int j=0; j<sudoku->N; j++) {
-            if(j%3 == 0)
-                printf("| %d ", sudoku->grid[i][j]);
-            else
-             printf("%d ", sudoku->grid[i][j]);
-        }
-        printf("|\n");
+void printGrid(Sudoku *sudoku) {
+    printf("  ");
+    for (int i = 0; i < 9; i++) {
+        if (i % 3 == 0)
+            printf("  %d", i);
+        else
+            printf(" %d", i);
+        if (i == 5 || i == 2)
+            printf(" ");
     }
-    printf("-------------------------\n");
+    printf("\n");
+
+    for (int i = 0; i < sudoku->N; i++) {
+        if (i % 3 == 0)
+            printf("  -------------------------\n");
+        for (int j = 0; j < sudoku->N; j++) {
+            if (j == 0)
+                printf("%d ", i);
+            if (j % 3 == 0)
+                printf("| %d ", sudoku->grid[i][j]);
+            else if (j == 8)
+                printf("%d |", sudoku->grid[i][j]);
+            else
+                printf("%d ", sudoku->grid[i][j]);
+        }
+        printf("\n");
+    }
+    printf("  -------------------------\n");
 }
