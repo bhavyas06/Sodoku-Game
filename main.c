@@ -16,9 +16,9 @@ int main() {
         printf("Choose your mode: ");
         scanf("%d", &diff_mode);
         switch(diff_mode) {
-            case 1: diff = 10; flag = false; break;
-            case 2: diff = 20; flag = false; break;
-            case 3: diff = 30; flag = false; break;
+            case 1: diff = 20; flag = false; break;
+            case 2: diff = 30; flag = false; break;
+            case 3: diff = 40; flag = false; break;
             default: printf("\nInvalid Mode. Try Again.\n"); flag = true; break;
         }
     }
