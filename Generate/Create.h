@@ -1,4 +1,4 @@
-#include "Sodoku.h"
+#include "../Sodoku.h"
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>

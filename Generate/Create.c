@@ -1,5 +1,3 @@
-#include <math.h>
-#include <string.h>
 #include "Create.h"
 
 Sudoku* createSudoku(int N, int diff) {
