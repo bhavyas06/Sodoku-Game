@@ -1,6 +1,6 @@
 # Sodoku-Solver and Generator
-# Compilation and Execution
+## Compilation and Execution
 
-# Functions
+## Functions
 
-# Working
+## Working
