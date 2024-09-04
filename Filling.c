@@ -12,6 +12,7 @@ void fillDiagnols(Sudoku *sudoku) {
 }
 
 void fillBox(Sudoku *sudoku, int row, int col) {
+    srand(time(NULL));
     int num;
     for(int i=0; i<sudoku->M; i++) {
         for(int j=0; j<sudoku->M; j++) {

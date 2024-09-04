@@ -1,6 +1,3 @@
-#include <stdlib.h>
-#include <time.h>
-#include <math.h>
 #include "Generator.h"
 
 int randomGenerator(int num) {

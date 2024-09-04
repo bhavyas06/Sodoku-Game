@@ -1,4 +1,5 @@
 #include "IsSafe.h"
+#include <time.h>
 
 void fillValues(Sudoku *sodoku);
 void fillDiagnols(Sudoku *sodoku);
