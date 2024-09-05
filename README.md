@@ -26,12 +26,12 @@ To compile and execute the project, simply run the following command:
 The run.sh script is responsible for compiling the necessary files and executing the program.
 
 ## Code Structure
--><ins>Generator</ins>: This folder includes various files which include all the logic required to generate a random 9X9 sudoku grid.
--><ins>Solver</ins>: This folder includes the file which includes the logic to check if the inputs provided by the user are valid or not and further solves the grid.
--><ins>SeeSolution</ins>: This folder contains the logic to solve the whole grid if the user proceeds to choose this option.
--><ins>main.c</ins>: Entry point for the command-line tool and also contains the menu for the project.
--><ins>Sudoku.h</ins>: Contains the struct for the sudoku grid.
+-><ins>Generator</ins>: This folder includes various files which include all the logic required to generate a random 9X9 sudoku grid.<br/>
+-><ins>Solver</ins>: This folder includes the file which includes the logic to check if the inputs provided by the user are valid or not and further solves the grid.<br/>
+-><ins>SeeSolution</ins>: This folder contains the logic to solve the whole grid if the user proceeds to choose this option.<br/>
+-><ins>main.c</ins>: Entry point for the command-line tool and also contains the menu for the project.<br/>
+-><ins>Sudoku.h</ins>: Contains the struct for the sudoku grid.<br/>
 
-## Working
+## Flow Chart
 ![FolwChart](https://github.com/user-attachments/assets/fa802ecd-fef2-4108-b00d-3e9650740a6d)
 
