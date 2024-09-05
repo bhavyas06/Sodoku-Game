@@ -6,9 +6,9 @@
 
 typedef struct {
     int **grid;
-    int N;
-    int M;
-    int diff;
+    int N;          // size of grid
+    int M;          // square root of size to check boxes
+    int diff;       // decides not of empty cells
 } Sudoku;
 
 #endif /*_Sudoku_H_*/

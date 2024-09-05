@@ -15,6 +15,7 @@ int main() {
 
     printf("\nModes:\n1. Easy\n2. Medium\n3. Hard\n");
 
+    // This menu decides the difficulty mode of the game
     bool flag = true;
     while(flag == true) {
         printf("Choose your mode: ");
@@ -28,6 +29,7 @@ int main() {
         }
     }
     
+    // calculate starting time
     struct timeval before;
     gettimeofday(&before, NULL);
     long long before_millis = before.tv_sec*1000LL + before.tv_usec/1000;
@@ -36,6 +38,8 @@ int main() {
     fillValues(sudoku);
     printGrid(sudoku);
 
+
+    // This menu takes the input from user and solves the game
     int lives = 5;
     int op;
     
@@ -44,6 +48,7 @@ int main() {
         printf("\nEnter row number: ");
         scanf("%d", &row);
 
+        // if input == -1, means either the user wants to quit or see the solution. user also has the option to go back
         if(row==-1) {
             int option = escapeMenu(sudoku);
             if(option == 0)
@@ -77,6 +82,7 @@ int main() {
         scanf("%d", &num);
         printf("\n");
 
+        // verifies that the input is within boundary
         if(checkBounds(row, col, num) == false) {
             system("clear");
             printf("\n=> Input Not Valid. Try Again.\n");
@@ -85,8 +91,9 @@ int main() {
             printGrid(sudoku);
         }
         else {
+            // checks whether a cell is empty or not
             if(sudoku->grid[row][col]!=0) {
-                system("clear");
+                system("clear");        // clears the terminal, makes the ouptut clean
                 printf("=> Cell not Empty. Try Again.\n");
                 printf("~Lives Remaining: %d", lives);
                 printf("\n~Cells Remaining: %d\n\n", diff);
@@ -117,10 +124,12 @@ int main() {
         
     }
 
+    // calculating end time
     struct timeval after;
     gettimeofday(&after, NULL);
     long long after_millis = after.tv_sec*1000LL + after.tv_usec/1000;
 
+    // freeing the memory
     for (int i = 0; i < N; i++) {
         free(sudoku->grid[i]);
     }

@@ -1,5 +1,6 @@
 #include "Create.h"
 
+// creates the sudoku grid dynamically
 Sudoku* createSudoku(int N, int diff) {
     Sudoku* sudoku = (Sudoku*)malloc(sizeof(Sudoku));
     sudoku->N = N;
@@ -14,6 +15,7 @@ Sudoku* createSudoku(int N, int diff) {
     return sudoku;
 }
 
+// removes digits from the grid based on difficulty mode
 void removeDigits(Sudoku *sudoku) {
     int count = sudoku->diff;
     while (count != 0) {
@@ -27,19 +29,7 @@ void removeDigits(Sudoku *sudoku) {
     }
 }
 
-void removeDigits(Sudoku *sudoku) {
-    int count = sudoku->diff;
-    while (count != 0) {
-        int cellId = randomGenerator(sudoku->N * sudoku->N) - 1;
-        int i = (cellId / sudoku->N);
-        int j = cellId % sudoku->N;
-        if (sudoku->grid[i][j] != 0) {
-            count--;
-            sudoku->grid[i][j] = 0;
-        }
-    }
-}
-
+// prints the grid
 void printGrid(Sudoku *sudoku) {
     printf("  ");
     for (int i = 0; i < 9; i++) {

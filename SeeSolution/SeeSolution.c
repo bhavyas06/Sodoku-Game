@@ -1,5 +1,6 @@
 #include "SeeSolution.h"
 
+// checks whether the number is present in row
 bool UsedInRow(Sudoku *sudoku, int row, int num) {
     for (int col = 0; col < 9; col++)
         if (sudoku->grid[row][col] == num)
@@ -7,6 +8,7 @@ bool UsedInRow(Sudoku *sudoku, int row, int num) {
     return false;
 }
 
+// checks whether the number is present in column
 bool UsedInCol(Sudoku *sudoku, int col, int num){
     for (int row = 0; row < 9; row++)
         if (sudoku->grid[row][col] == num)
@@ -14,6 +16,7 @@ bool UsedInCol(Sudoku *sudoku, int col, int num){
     return false;
 }
 
+// checks whether the number is present in box
 bool UsedInBox(Sudoku *sudoku, int startRow, int startCol, int num) {
     for (int row = 0; row < 3; row++)
         for (int col = 0; col < 3; col++)
@@ -22,12 +25,14 @@ bool UsedInBox(Sudoku *sudoku, int startRow, int startCol, int num) {
     return false;
 }
 
+// verifies all conditions
 bool isSafe(Sudoku *sudoku, int row, int col, int num) {
     return !UsedInRow(sudoku, row, num) && !UsedInCol(sudoku, col, num) && 
            !UsedInBox(sudoku, row - row % 3, col - col % 3, num) && 
            sudoku->grid[row][col] == 0;
 }
 
+// checks whether any cell is remaining empty
 bool FindLocation(Sudoku *sudoku, int *row, int *col) {
     for (*row = 0; *row < 9; (*row)++)
         for (*col = 0; *col < 9; (*col)++)
@@ -51,7 +56,6 @@ bool FullSolution(Sudoku *sudoku) {
     return false;
 }
 
-
 void seeSolution(Sudoku *sudoku) {
     if(FullSolution(sudoku))
         printGrid(sudoku);
@@ -59,6 +63,7 @@ void seeSolution(Sudoku *sudoku) {
     return;
 }
 
+// provides the menu when user inputs -1.
 int escapeMenu(Sudoku *sudoku) {
     int op;
     while(op!=1 || op!=2 || op!=3) {
