@@ -27,7 +27,7 @@ int main() {
             default: printf("\nInvalid Mode. Try Again.\n"); flag = true; break;
         }
     }
-
+    
     struct timeval before;
     gettimeofday(&before, NULL);
     long long before_millis = before.tv_sec*1000LL + before.tv_usec/1000;
@@ -49,6 +49,9 @@ int main() {
             if(option == 0)
                 break;
             else {
+                system("clear");
+                printf("~Lives Remaining: %d", lives);
+                printf("\n~Cells Remaining: %d\n", diff);
                 printGrid(sudoku);
                 continue;
             }
@@ -62,6 +65,9 @@ int main() {
             if(option == 0)
                 break;
             else {
+                system("clear");
+                printf("~Lives Remaining: %d", lives);
+                printf("\n~Cells Remaining: %d\n", diff);
                 printGrid(sudoku);
                 continue;
             }
@@ -73,24 +79,28 @@ int main() {
 
         if(checkBounds(row, col, num) == false) {
             system("clear");
-            printf("\n=> Input Not Valid. Try Again.\n\n");
+            printf("\n=> Input Not Valid. Try Again.\n");
+            printf("~Lives Remaining: %d", lives);
+            printf("\n~Cells Remaining: %d\n\n", diff);
             printGrid(sudoku);
         }
         else {
             if(sudoku->grid[row][col]!=0) {
                 system("clear");
-                printf("=> Cell not Empty. Try Again.\n\n");
+                printf("=> Cell not Empty. Try Again.\n");
+                printf("~Lives Remaining: %d", lives);
+                printf("\n~Cells Remaining: %d\n\n", diff);
                 printGrid(sudoku);
             }
 
             else {
                 if (SolveSudoku(sudoku, row, col, num)) {
                     system("clear");
-                    printGrid(sudoku);
                     diff--;
                     printf("\n=> Correct");
                     printf("\n~Lives Remaining: %d", lives);
-                    printf("\n~Cells Remaining: %d\n", diff);
+                    printf("\n~Cells Remaining: %d\n\n", diff);
+                    printGrid(sudoku);
                 }
 
                 else {
@@ -121,8 +131,7 @@ int main() {
     long long totalSec = timeTaken/1000;
     long long minutes = totalSec/60;
     long long seconds = totalSec%60;
-    printf("\nTime taken: %d mins %d secs\n", minutes, seconds);
-
+    printf("\nTime taken: %llu mins %llu secs\n", minutes, seconds);
 
     if (lives == 0)
         printf("\nYOU LOST. GAME OVER!\n\n");
