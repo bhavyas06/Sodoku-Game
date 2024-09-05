@@ -1,4 +1,4 @@
-#include "Generate/Filling.h"
+#include "Solver/Solver.h"
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -17,6 +17,7 @@ int main() {
     while(flag == true) {
         printf("Choose your mode: ");
         scanf("%d", &diff_mode);
+        printf("\n");
         switch(diff_mode) {
             case 1: diff = 20; flag = false; break;
             case 2: diff = 30; flag = false; break;
