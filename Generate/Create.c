@@ -27,6 +27,19 @@ void removeDigits(Sudoku *sudoku) {
     }
 }
 
+void removeDigits(Sudoku *sudoku) {
+    int count = sudoku->diff;
+    while (count != 0) {
+        int cellId = randomGenerator(sudoku->N * sudoku->N) - 1;
+        int i = (cellId / sudoku->N);
+        int j = cellId % sudoku->N;
+        if (sudoku->grid[i][j] != 0) {
+            count--;
+            sudoku->grid[i][j] = 0;
+        }
+    }
+}
+
 void printGrid(Sudoku *sudoku) {
     printf("  ");
     for (int i = 0; i < 9; i++) {
@@ -45,12 +58,25 @@ void printGrid(Sudoku *sudoku) {
         for (int j = 0; j < sudoku->N; j++) {
             if (j == 0)
                 printf("%d ", i);
-            if (j % 3 == 0)
-                printf("| %d ", sudoku->grid[i][j]);
-            else if (j == 8)
-                printf("%d |", sudoku->grid[i][j]);
-            else
-                printf("%d ", sudoku->grid[i][j]);
+            if (j % 3 == 0) {
+                if(sudoku->grid[i][j] == 0)
+                    printf("|   ");
+                else    
+                    printf("| %d ", sudoku->grid[i][j]);
+
+            }
+            else if (j == 8) {
+                if(sudoku->grid[i][j] == 0)
+                    printf("  |");
+                else    
+                    printf("%d |", sudoku->grid[i][j]);
+            }
+            else {
+                if(sudoku->grid[i][j] == 0)
+                    printf("  ");
+                else    
+                    printf("%d ", sudoku->grid[i][j]);
+            }
         }
         printf("\n");
     }
