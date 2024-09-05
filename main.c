@@ -28,6 +28,10 @@ int main() {
         }
     }
 
+    struct timeval before;
+    gettimeofday(&before, NULL);
+    long long before_millis = before.tv_sec*1000LL + before.tv_usec/1000;
+
     sudoku = createSudoku(N, diff);
     fillValues(sudoku);
     printGrid(sudoku);
@@ -103,11 +107,21 @@ int main() {
         
     }
 
+    struct timeval after;
+    gettimeofday(&after, NULL);
+    long long after_millis = after.tv_sec*1000LL + after.tv_usec/1000;
+
     for (int i = 0; i < N; i++) {
         free(sudoku->grid[i]);
     }
     free(sudoku->grid);
     free(sudoku);
+
+    long long timeTaken = after_millis - before_millis;
+    long long totalSec = timeTaken/1000;
+    long long minutes = totalSec/60;
+    long long seconds = totalSec%60;
+    printf("\nTime taken: %d mins %d secs\n", minutes, seconds);
 
 
     if (lives == 0)
