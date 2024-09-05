@@ -7,9 +7,31 @@ This project provides a fully functional Sudoku game which contains a Sudoku Gen
 -> <ins>See Solution</ins>: allows the user to see the fully filled grid. <br/>
 -> <ins>Error Handling</ins>: verifies the edge test cases and then proceeds further. <br/>
 
-## Compilation and Execution
+## Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/bhavyas06/Sodoku-Game.git
+```
+2. Navigate to project directory.
+3. Ensure the run.sh file has the execute permissions:
+```bash
+chmod +x run.sh
+```
+
+## Compilation and Running
+To compile and execute the project, simply run the following command:
+```bash
+./run.sh
+```
+The run.sh script is responsible for compiling the necessary files and executing the program.
+
+## Code Structure
+-><ins>Generator</ins>: This folder includes various files which include all the logic required to generate a random 9X9 sudoku grid.
+-><ins>Solver</ins>: This folder includes the file which includes the logic to check if the inputs provided by the user are valid or not and further solves the grid.
+-><ins>SeeSolution</ins>: This folder contains the logic to solve the whole grid if the user proceeds to choose this option.
+-><ins>main.c</ins>: Entry point for the command-line tool and also contains the menu for the project.
+-><ins>Sudoku.h</ins>: Contains the struct for the sudoku grid.
 
 ## Working
-![FlowChart](https://github.com/user-attachments/assets/68c66791-0f80-4eab-b26f-9a6d52cb9fc7)
-
+![FolwChart](https://github.com/user-attachments/assets/fa802ecd-fef2-4108-b00d-3e9650740a6d)
 
