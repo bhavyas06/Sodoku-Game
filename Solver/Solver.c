@@ -20,3 +20,13 @@ bool SolveSudoku(Sudoku *sudoku, int row, int col, int num) {
     }
     return false;
 }
+
+bool checkBounds(int row, int col, int num) {
+    if(row<0 || col<0)
+        return false;
+    if(row>8 || col>8)
+        return false;
+    if(num<1 || num>9)
+        return false;
+    return true;
+}
